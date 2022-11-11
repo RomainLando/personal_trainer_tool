@@ -44,3 +44,9 @@ The app would also have the added funcitonalities of:
 * allowing clients to mark workouts as done or incomplete
 * allow the PT to view a client's workouts and their individual statuses (in the form of a calendar?)
 
+## Super advanced
+
+Create a dashboard for user with:
+* BMI
+* VO2-max
+* weight / time graph
