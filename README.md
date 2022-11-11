@@ -31,13 +31,15 @@ The app should allow the PT:
 
 The app could also allow the client:
 * to view their programs 
-* to edit some of their atttributes (only certain attributes)
-* to view upcoming workouts for a given week
+* to edit some of their attributes (only certain attributes)
+
 
 
 ## Advanced Extension
 
 The app would also have the added funcitonalities of:
+* allowing clients to view workouts they need to complete
+* allowing trainers to view a client's workouts
 * allowing clients to send feedback for a given workout
 * allowing clients to mark workouts as done or incomplete
 * allow the PT to view a client's workouts and their individual statuses (in the form of a calendar?)
