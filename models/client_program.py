@@ -1,5 +1,5 @@
 class ClientProgram:
-    def __str__(self, client, program, id=None):
+    def __init__(self, client, program, id=None):
         self.client = client
         self.program = program
         self.id = id
