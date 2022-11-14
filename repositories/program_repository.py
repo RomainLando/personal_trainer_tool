@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 from models.program import Program
+import repositories.exercise_repository as exercise_repository
 
 def save(program):
     sql = """INSERT INTO programs 
@@ -50,3 +51,21 @@ def update(program):
     """
     values = [program.title, program.id]
     run_sql(sql, values)
+
+def show_exercises(program):
+    exercises = []
+    sql = """
+    SELECT exercises.id AS exercise_id
+    FROM exercises
+    INNER JOIN workouts
+    ON exercises.id = workouts.exercise_id
+    INNER JOIN programs
+    ON workouts.program_id = programs.id
+    WHERE programs.id = %s
+    """
+    values = [program.id]
+    results = run_sql(sql, values)
+    for result in results:
+        exercise = exercise_repository.select(result["exercise_id"])
+        exercises.append(exercise)
+    return exercises

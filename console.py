@@ -119,4 +119,3 @@ client_program_repository.save(client_program4)
 client_program_repository.save(client_program5)
 client_program_repository.save(client_program6)
 client_program_repository.save(client_program7)
-
