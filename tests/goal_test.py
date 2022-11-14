@@ -20,3 +20,6 @@ class TestGoal(unittest.TestCase):
     def test_goal_has_set(self):
         self.assertEqual(3, self.goal1.sets)
     
+    def test_goal_id_is_none(self):
+        self.assertIsNone(self.goal2.id)
+    
