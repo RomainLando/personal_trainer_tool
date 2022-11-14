@@ -1,6 +1,7 @@
 from db.run_sql import run_sql
 from models.client import Client
 from repositories import goal_repository
+from repositories import program_repository
 
 def save(client):
     sql = """INSERT INTO clients 
@@ -66,3 +67,21 @@ def update(client):
     values = [client.first_name, client.last_name, client.age,
     client.height, client.weight, client.goal.id, client.id]
     run_sql(sql, values)
+
+def show_programs(client):
+    client_programs = []
+    sql = """
+    SELECT programs.id AS program_id
+    from programs
+    INNER JOIN client_programs
+    ON programs.id = client_programs.program_id
+    INNER JOIN clients
+    ON clients.id = client_programs.client_id
+    WHERE clients.id = %s 
+    """
+    values = [client.id]
+    results = run_sql(sql, values)
+    for result in results:
+        client_program = program_repository.select(result["program_id"])
+        client_programs.append(client_program)
+    return client_programs
