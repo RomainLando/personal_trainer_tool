@@ -7,7 +7,10 @@ DROP TABLE IF EXISTS exercises;
 
 CREATE TABLE goals (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(255)
+    title VARCHAR(255),
+    rep_start INT,
+    rep_end INT,
+    sets INT
 );
 
 CREATE TABLE programs (
