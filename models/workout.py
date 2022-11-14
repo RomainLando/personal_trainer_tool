@@ -5,4 +5,4 @@ class Workout:
         self.id = id
 
     def __str__(self):
-        return f"The exercise {self.exercise} is in the program {self.program.title}"
+        return f"The exercise {self.exercise.name} is in the program {self.program.title}"

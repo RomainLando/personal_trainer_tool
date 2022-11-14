@@ -3,12 +3,14 @@ import pdb
 from models.goal import Goal
 from models.exercise import Exercise
 from models.program import Program
+from models.workout import Workout
 
 import repositories.goal_repository as goal_repository
 import repositories.exercise_repository as exercise_repository
 import repositories.program_repository as program_repository
+import repositories.workout_repository as workout_repository
 
-program_repository.delete_all()
+# program_repository.delete_all()
 # goal_repository.delete_all()
 # exercise_repository.delete_all()
 
@@ -56,6 +58,33 @@ program4 = Program("Full Body")
 # program_repository.save(program2)
 # program_repository.save(program3)
 # program_repository.save(program4)
+
+
+workout1 = Workout(program1, exercise1)
+workout2 = Workout(program1, exercise8)
+workout3 = Workout(program1, exercise5)
+workout4 = Workout(program2, exercise3)
+workout5 = Workout(program2, exercise9)
+workout6 = Workout(program2, exercise4)
+workout7 = Workout(program3, exercise6)
+workout8 = Workout(program3, exercise7)
+workout9 = Workout(program3, exercise10)
+workout10 = Workout(program4, exercise2)
+workout11 = Workout(program4, exercise8)
+workout12 = Workout(program4, exercise5)
+
+# workout_repository.save(workout1)
+# workout_repository.save(workout2)
+# workout_repository.save(workout3)
+# workout_repository.save(workout4)
+# workout_repository.save(workout5)
+# workout_repository.save(workout6)
+# workout_repository.save(workout7)
+# workout_repository.save(workout8)
+# workout_repository.save(workout9)
+# workout_repository.save(workout10)
+# workout_repository.save(workout11)
+# workout_repository.save(workout12)
 
 
 
