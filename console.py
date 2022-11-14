@@ -4,14 +4,18 @@ from models.goal import Goal
 from models.exercise import Exercise
 from models.program import Program
 from models.workout import Workout
+from models.client import Client
 
 import repositories.goal_repository as goal_repository
 import repositories.exercise_repository as exercise_repository
 import repositories.program_repository as program_repository
 import repositories.workout_repository as workout_repository
+import repositories.client_repository as client_repository
 
+goal_repository.delete_all()
+client_repository.delete_all()
+# workout_repository.delete_all()
 # program_repository.delete_all()
-# goal_repository.delete_all()
 # exercise_repository.delete_all()
 
 
@@ -20,10 +24,10 @@ goal2 = Goal("Hypertrophy", 6, 12, 4)
 goal3 = Goal("Strength", 2, 6, 4)
 goal4 = Goal("Endurance", 12, 20, 3)
 
-# goal_repository.save(goal1)
-# goal_repository.save(goal2)
-# goal_repository.save(goal3)
-# goal_repository.save(goal4)
+goal_repository.save(goal1)
+goal_repository.save(goal2)
+goal_repository.save(goal3)
+goal_repository.save(goal4)
 
 
 exercise1 = Exercise("Squats", "Lower Body")
@@ -85,6 +89,17 @@ workout12 = Workout(program4, exercise5)
 # workout_repository.save(workout10)
 # workout_repository.save(workout11)
 # workout_repository.save(workout12)
+
+
+client1 = Client("Adrien", "Hughes", 42, 170, 85, goal1)
+client2 = Client("Susan", "Boyle", 37, 160, 70, goal2)
+client3 = Client("Dominic", "Storm", 20, 191, 79, goal3)
+client4 = Client("Sarah", "Parker", 19, 150, 45, goal4)
+
+# client_repository.save(client1)
+# client_repository.save(client2)
+# client_repository.save(client3)
+# client_repository.save(client4)
 
 
 
