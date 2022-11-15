@@ -9,7 +9,7 @@
     <h4>{{exercise.name}}</h4>
     <p><em>Category:</em> {{exercise.muscle_group}}</p>
     {% if exercise.duration %}
-    <p><em>Duration</em>{{exercise.duration}} mins</p>
+    <p><em>Duration: </em> {{exercise.duration}} mins</p>
     {% endif %}
     <section class="buttons">
         <form action="/exercises/{{ exercise.id }}/edit">
