@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Exercises:</h3>
+
+{% for exercise in exercises %}
+
+<div class="exercise">
+    <h4>{{exercise.name}}</h4>
+    <p><em>Category:</em> {{exercise.muscle_group}}</p>
+    {% if exercise.duration %}
+    <p><em>Duration</em>{{exercise.duration}} mins</p>
+    {% endif %}
+    <section class="buttons">
+        <form action="/exercises/{{ exercise.id }}/edit">
+            <input type="submit" value="Edit">
+        </form>
+        <form action="/exercises/{{ exercise.id }}/delete" method="POST">
+            <input type="submit" value="Delete">
+        </form>
+    </section>
+    <form action="">
+
+    </form>
+</div>
+
+{% endfor %}
+
+{% endblock %}
