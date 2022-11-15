@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Add a new exercise:</h3>
+<form action="/exercises" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+    </div>
+    <div>
+        <label for="muscle-group">Muscle Group:</label>
+        <input type="text" id="muscle-group" name="muscle_group">
+    </div>
+    <div>
+        <label for="duration">Duration (in minutes):</label>
+        <input type="number" id="duration" name="duration">
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+{% endblock %}
