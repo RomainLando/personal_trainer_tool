@@ -5,7 +5,7 @@
 
 {% for exercise in exercises %}
 
-<div class="exercise">
+<div class="item">
     <h4>{{exercise.name}}</h4>
     <p><em>Category:</em> {{exercise.muscle_group}}</p>
     {% if exercise.duration %}
@@ -19,9 +19,6 @@
             <input type="submit" value="Delete">
         </form>
     </section>
-    <form action="">
-
-    </form>
 </div>
 
 {% endfor %}
