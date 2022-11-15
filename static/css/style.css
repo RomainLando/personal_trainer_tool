@@ -11,6 +11,13 @@
 
 body {
     margin: 0;
+    background-image: url("/static/images/main2.jpg") ;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Bree Serif', serif;
+
 }
 
 header {
@@ -18,26 +25,47 @@ header {
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
-    background-color: rgb(22, 21, 21);
-    padding: 1rem 3rem;
+    background-image: linear-gradient(
+        rgba(22, 21, 21, 1),
+        rgba(22, 21, 21, 0.02));
+    padding: 0 6rem;
     color: white;
 }
 
 h1 {
     font-size: 50px;
+    color: rgb(0, 208, 255);
+}
+
+h2 {
+    font-size: 70px;
+    color: rgb(0, 208, 255);
+}
+
+h3 {
+    font-size: 40px;
+    color: white;
+}
+
+.container {
+    margin: 10% 1rem;
+}
+
+.intro {
+    text-align: center;
 }
 
 .menu {
     display: flex;
     justify-content: space-around;
-    gap: 1rem;
+    gap: 2rem;
 
 }
 
 .menu > li {
     list-style: none;
     position: relative;
-
+    font-size: 20px;
 }
 
 .menu > li > ul {
@@ -50,7 +78,7 @@ h1 {
     visibility:visible;
     position: absolute;
     padding: 0;
-    background: rgb(22, 21, 21);
+    background: transparent;
     list-style: none;
     animation-name: drop;
     animation-duration: 0.7s;
