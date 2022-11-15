@@ -1,0 +1,65 @@
+@keyframes drop {
+    0% {
+        transform: translateY(-18%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    background-color: rgb(22, 21, 21);
+    padding: 1rem 3rem;
+    color: white;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+
+}
+
+.menu > li {
+    list-style: none;
+    position: relative;
+
+}
+
+.menu > li > ul {
+    visibility: hidden;
+    padding: 0;
+    
+}
+
+.menu > li:hover > ul {
+    visibility:visible;
+    position: absolute;
+    padding: 0;
+    background: rgb(22, 21, 21);
+    list-style: none;
+    animation-name: drop;
+    animation-duration: 0.7s;
+    
+
+    
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}

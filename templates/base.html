@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>PT Assist</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li>
+                    Clients
+                    <ul>
+                        <li><a href="/clients">All</a></li>
+                        <li><a href="/clients/new">New</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Programs
+                    <ul>
+                        <li><a href="/programs">All</a></li>
+                        <li><a href="/programs/new">Add</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Exercises
+                    <ul>
+                        <li><a href="/exercises">All</a></li>
+                        <li><a href="/exercises/new">Add</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Goals
+                    <ul>
+                        <li><a href="/goals">All</a></li>
+                        <li><a href="/goals/new">Add</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
