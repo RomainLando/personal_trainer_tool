@@ -56,7 +56,8 @@ def update_program(id):
     program_repository.update(new_program)
     exercises = program_repository.show_exercises(new_program)
     for exercise in exercises:
-        workout_repository.delete(exercise.id)
+        workout = workout_repository.select_by_program_exercise_ids(new_program.id, exercise.id)
+        workout_repository.delete(workout.id)
     exercises_id = request.form.getlist('exercises_id')
     for exercise_id in exercises_id:
         new_exercise = exercise_repository.select(int(exercise_id))

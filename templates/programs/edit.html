@@ -10,11 +10,7 @@
         </div>
         {% for exercise in exercises %}
         <div>
-            {% if exercise.id in workout_ids %}
-            <input type="checkbox" name="exercises_id" value="{{ exercise.id }}" checked>
-            {% else %}
-            <input type="checkbox" name="exercises_id" value="{{ exercise.id }}">
-            {% endif %}
+            <input type="checkbox" name="exercises_id" value="{{ exercise.id }}" {% if exercise.id in workout_ids %} checked {% endif %}>
             {% if exercise.duration %}
             <label for="exercises_id">{{ exercise.name }} {{exercise.duration}} mins</label>
             {% else %}

@@ -51,12 +51,35 @@ def delete_client(id):
     client_repository.delete(id)
     return redirect("/clients")
 
-
-
 @clients_blueprint.route("/clients/<id>/edit")
 def edit_client(id):
     client = client_repository.select(id)
     programs = program_repository.select_all()
+    goals = goal_repository.select_all()
     client_programs = client_repository.show_programs(client)
     client_programs_ids = [client_program.id for client_program in client_programs]
-    return render_template("/clients/edit.html", client = client, programs = programs, client_programs_ids = client_programs_ids)
+    return render_template("/clients/edit.html", client = client, programs = programs, client_programs_ids = client_programs_ids, goals = goals)
+
+@clients_blueprint.route("/clients/<id>", methods=["POST"])
+def update_client(id):
+    first_name = request.form["first_name"]
+    last_name = request.form["last_name"]
+    age = request.form["age"]
+    weight = request.form["weight"]
+    height = request.form["height"]
+    goal_id = request.form["goal_id"]
+    goal = goal_repository.select(int(goal_id))
+    new_client = Client(first_name, last_name, age, height, weight, goal, id)
+    client_repository.update(new_client)
+    programs = client_repository.show_programs(new_client)
+    for program in programs:
+        client_program_repository.delete(program.id)
+    programs_id = request.form.getlist('programs_id')
+    for program_id in programs_id:
+        program = program_repository.select(int(program_id))
+        new_client_program = ClientProgram(new_client, program)
+        print(new_client_program.client)
+        print(new_client_program.program)
+        print(new_client_program.id)
+        client_program_repository.save(new_client_program)
+    return redirect("/clients")
