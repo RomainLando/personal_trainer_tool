@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Add a New Client:</h3>
+<div class="form">
+    <form action="/clients" method="POST">
+        <div>
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first_name">
+        </div>
+        <div>
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last_name">
+        </div>
+        <div>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age">
+        </div>
+        <div>
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" name="height">
+        </div>
+        <div>
+            <label for="weight">Weight (kg):</label>
+            <input type="text" id="weight" name="weight">
+        </div>
+        <div>
+            <label for="goal">Goal:</label>
+            <select name="goal_id" id="goal">
+                {% for goal in goals %}
+                <option value="{{ goal.id }}">
+                    {{ goal.title }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        {% for program in programs %}
+        <div>
+            <input type="checkbox" name="programs_id" value="{{ program.id }}">
+            <label for="programs_id">{{ program.title }}</label>
+        </div>
+        {% endfor %}
+        <div>
+            <input type="submit">
+        </div>
+    </form>
+</div>
+
+{% endblock %}
