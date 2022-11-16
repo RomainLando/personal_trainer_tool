@@ -73,7 +73,8 @@ def update_client(id):
     client_repository.update(new_client)
     programs = client_repository.show_programs(new_client)
     for program in programs:
-        client_program_repository.delete(program.id)
+        client_program = client_program_repository.select_by_client_program_ids(new_client.id, program.id)
+        client_program_repository.delete(client_program.id)
     programs_id = request.form.getlist('programs_id')
     for program_id in programs_id:
         program = program_repository.select(int(program_id))

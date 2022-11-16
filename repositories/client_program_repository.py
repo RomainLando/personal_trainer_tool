@@ -65,3 +65,20 @@ def update(client_program):
     """
     values = [client_program.client.id, client_program.program.id, client_program.id]
     run_sql(sql, values)
+
+def select_by_client_program_ids(client_id, program_id):
+    sql = """
+    SELECT * FROM client_programs
+    WHERE client_id = %s
+    AND program_id = %s
+    """
+    values = [client_id, program_id]
+    results = run_sql(sql, values)
+    if results:
+        result = results[0]
+        client_id = result['client_id']
+        program_id = result['program_id']
+        client = client_repository.select(client_id)
+        program = program_repository.select(program_id)
+        client_programs = ClientProgram(client, program, result['id'])
+    return client_programs
