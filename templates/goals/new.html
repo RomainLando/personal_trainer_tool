@@ -1,29 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3>Add a new goal:</h3>
-<div class="form">
-    <form action="/goals" method="POST">
-        <div>
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title">
-        </div>
-        <div>
-            <label for="rep-start">Start Rep Range:</label>
-            <input type="number" id="rep-start" min="1" name="rep_start">
-        </div>
-        <div>
-            <label for="rep-end">End Rep Range:</label>
-            <input type="number" id="rep-end" min="2" name="rep_end">
-        </div>
-        <div>
-            <label for="sets">Number of Sets:</label>
-            <input type="number" id="sets" min="1" name="sets">
-        </div>
-        <div>
-            <input type="submit">
-        </div>
-    </form>
+<div class="content">
+    <h3>Add a new goal:</h3>
+    <div class="form">
+        <form action="/goals" method="POST">
+            <div>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div>
+                <label for="rep-start">Start Rep Range:</label>
+                <input type="number" id="rep-start" min="1" name="rep_start">
+            </div>
+            <div>
+                <label for="rep-end">End Rep Range:</label>
+                <input type="number" id="rep-end" min="2" name="rep_end">
+            </div>
+            <div>
+                <label for="sets">Number of Sets:</label>
+                <input type="number" id="sets" min="1" name="sets">
+            </div>
+            <div class="submit">
+                <input type="submit">
+            </div>
+        </form>
+    </div>
 </div>
-
 {% endblock %}

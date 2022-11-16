@@ -1,24 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3>Add a new exercise:</h3>
-<div class="form">
-    <form action="/exercises" method="POST">
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
-        </div>
-        <div>
-            <label for="muscle-group">Muscle Group:</label>
-            <input type="text" id="muscle-group" name="muscle_group">
-        </div>
-        <div>
-            <label for="duration">Duration (in minutes):</label>
-            <input type="number" min="1" id="duration" name="duration">
-        </div>
-        <div>
-            <input type="submit">
-        </div>
-    </form>
+<div class="content">
+    <h3>Add a new exercise:</h3>
+    <div class="form">
+        <form action="/exercises" method="POST">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div>
+                <label for="muscle-group">Muscle Group:</label>
+                <input type="text" id="muscle-group" name="muscle_group">
+            </div>
+            <div>
+                <label for="duration">Duration (in minutes):</label>
+                <input type="number" min="1" id="duration" name="duration">
+            </div>
+            <div class="submit">
+                <input type="submit">
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}

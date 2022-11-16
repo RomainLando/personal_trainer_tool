@@ -1,29 +1,31 @@
-edit.html{% extends "base.html" %}
+{% extends "base.html" %}
 {% block content %}
 
-<h3>Edit Goal:</h3>
-<div class="form">
-    <form action="/goals/{{ goal.id }}" method="POST">
-        <div>
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" value="{{ goal.title }}">
-        </div>
-        <div>
-            <label for="rep-start">Start Rep Range:</label>
-            <input type="number" id="rep-start" min="1" name="rep_start" value="{{ goal.rep_start }}">
-        </div>
-        <div>
-            <label for="rep-end">End Rep Range:</label>
-            <input type="number" id="rep-end" min="2" name="rep_end" value="{{ goal.rep_end }}">
-        </div>
-        <div>
-            <label for="sets">Number of Sets:</label>
-            <input type="number" id="sets" min="1" name="sets" value="{{ goal.sets }}">
-        </div>
-        <div>
-            <input type="submit">
-        </div>
-    </form>
+<div class="content">
+    <h3>Edit Goal:</h3>
+    <div class="form">
+        <form action="/goals/{{ goal.id }}" method="POST">
+            <div>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" value="{{ goal.title }}">
+            </div>
+            <div>
+                <label for="rep-start">Start Rep Range:</label>
+                <input type="number" id="rep-start" min="1" name="rep_start" value="{{ goal.rep_start }}">
+            </div>
+            <div>
+                <label for="rep-end">End Rep Range:</label>
+                <input type="number" id="rep-end" min="2" name="rep_end" value="{{ goal.rep_end }}">
+            </div>
+            <div>
+                <label for="sets">Number of Sets:</label>
+                <input type="number" id="sets" min="1" name="sets" value="{{ goal.sets }}">
+            </div>
+            <div class="submit">
+                <input type="submit">
+            </div>
+        </form>
+    </div>
 </div>
 
 {% endblock %}
