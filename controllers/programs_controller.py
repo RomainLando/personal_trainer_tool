@@ -63,3 +63,9 @@ def update_program(id):
         new_workout = Workout(new_program, new_exercise)
         workout_repository.save(new_workout)
     return redirect("/programs")
+
+@programs_blueprint.route("/programs/<program_id>/<exercise_id>/delete", methods=["POST"])
+def remove_exercise(program_id, exercise_id):
+    workout = workout_repository.select_by_program_exercise_ids(program_id, exercise_id)
+    workout_repository.delete(workout.id)
+    return redirect(f"/programs/{program_id}")

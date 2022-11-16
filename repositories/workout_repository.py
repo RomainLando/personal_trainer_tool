@@ -64,3 +64,20 @@ def update(workout):
     """
     values = [ workout.program.id, workout.exercise.id, workout.id]
     run_sql(sql, values)
+
+def select_by_program_exercise_ids(program_id, exercise_id):
+    sql = """
+    SELECT * FROM workouts
+    WHERE program_id = %s
+    AND exercise_id = %s
+    """
+    values = [program_id, exercise_id]
+    results = run_sql(sql, values)
+    if results:
+        result = results[0]
+        exercise_id = result['exercise_id']
+        program_id = result['program_id']
+        exercise = exercise_repository.select(exercise_id)
+        program = program_repository.select(program_id)
+        workout = Workout(program, exercise, result['id'])
+    return workout
