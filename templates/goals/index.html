@@ -2,23 +2,23 @@
 {% block content %}
 
 <h3>Fitness Goals:</h3>
-
+<div class="items">
 {% for goal in goals %}
 
-<div class="item">
-    <h4>{{ goal.title }}</h4>
-    <p><em>Rep range:</em> {{ goal.rep_start }} - {{ goal.rep_end }}</p>
-    <p><em>Sets:</em> {{ goal.sets }}</p>
-    <section class="buttons">
-        <form action="/goals/{{ goal.id }}/edit">
-            <input type="submit" value="Edit">
-        </form>
-        <form action="/goals/{{ goal.id }}/delete" method="POST">
-            <input type="submit" value="Delete">
-        </form>
-    </section>
-</div>
+    <div class="item">
+        <h4>{{ goal.title }}</h4>
+        <p><em>Rep range:</em> {{ goal.rep_start }} - {{ goal.rep_end }}</p>
+        <p><em>Sets:</em> {{ goal.sets }}</p>
+        <section class="buttons">
+            <form action="/goals/{{ goal.id }}/edit">
+                <input type="submit" value="Edit">
+            </form>
+            <form action="/goals/{{ goal.id }}/delete" method="POST">
+                <input type="submit" value="Delete">
+            </form>
+        </section>
+    </div>
 
 {% endfor %}
-
+</div>
 {% endblock %}

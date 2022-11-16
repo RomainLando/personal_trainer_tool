@@ -2,7 +2,7 @@
 {% block content %}
 
 <h3>Exercises:</h3>
-<div class="exercises">
+<div class="items">
     {% for exercise in exercises %}
 
     <div class="item">
@@ -10,6 +10,8 @@
         <p><em>Category:</em> {{exercise.muscle_group}}</p>
         {% if exercise.duration %}
         <p><em>Duration: </em> {{exercise.duration}} mins</p>
+        {% else %}
+        <p>---</p>
         {% endif %}
         <section class="buttons">
             <form action="/exercises/{{ exercise.id }}/edit">
