@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Program: {{ program.title }}</h3>
+<div class="exercises">
+    {% for exercise in exercises %}
+    <div class="item">
+        <h4>{{exercise.name}}</h4>
+        <p><em>Category:</em> {{exercise.muscle_group}}</p>
+        {% if exercise.duration %}
+        <p><em>Duration: </em> {{exercise.duration}} mins</p>
+        {% endif %}
+        <section class="buttons">
+            <form action="/workouts/{{program.id }}/{{ exercise.id }}/delete" method="POST">
+                <input type="submit" value="Remove">
+            </form>
+        </section>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="program-buttons">
+    <form action="/programs/{{ program.id }}/edit">
+        <button type="submit" class="workout-button"><h4>Modify Program</h4></button>
+    </form>
+    <form action="/programs/{{ program.id }}/delete" method="POST">
+        <button type="submit" class="workout-button"><h4>Delete Program</h4></button>
+    </form>
+</div>
+{% endblock %}

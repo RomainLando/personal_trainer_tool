@@ -2,25 +2,25 @@
 {% block content %}
 
 <h3>Exercises:</h3>
+<div class="exercises">
+    {% for exercise in exercises %}
 
-{% for exercise in exercises %}
+    <div class="item">
+        <h4>{{exercise.name}}</h4>
+        <p><em>Category:</em> {{exercise.muscle_group}}</p>
+        {% if exercise.duration %}
+        <p><em>Duration: </em> {{exercise.duration}} mins</p>
+        {% endif %}
+        <section class="buttons">
+            <form action="/exercises/{{ exercise.id }}/edit">
+                <input type="submit" value="Edit">
+            </form>
+            <form action="/exercises/{{ exercise.id }}/delete" method="POST">
+                <input type="submit" value="Delete">
+            </form>
+        </section>
+    </div>
 
-<div class="item">
-    <h4>{{exercise.name}}</h4>
-    <p><em>Category:</em> {{exercise.muscle_group}}</p>
-    {% if exercise.duration %}
-    <p><em>Duration: </em> {{exercise.duration}} mins</p>
-    {% endif %}
-    <section class="buttons">
-        <form action="/exercises/{{ exercise.id }}/edit">
-            <input type="submit" value="Edit">
-        </form>
-        <form action="/exercises/{{ exercise.id }}/delete" method="POST">
-            <input type="submit" value="Delete">
-        </form>
-    </section>
+    {% endfor %}
 </div>
-
-{% endfor %}
-
 {% endblock %}

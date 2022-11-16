@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Create a new Program:</h3>
+<div class="form">
+    <form action="/programs/{{ program.id }}" method="POST">
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="{{ program.title }}">
+        </div>
+        {% for exercise in exercises %}
+        <div>
+            {% if exercise.id in workout_ids %}
+            <input type="checkbox" name="exercises_id" value="{{ exercise.id }}" checked>
+            {% else %}
+            <input type="checkbox" name="exercises_id" value="{{ exercise.id }}">
+            {% endif %}
+            {% if exercise.duration %}
+            <label for="exercises_id">{{ exercise.name }} {{exercise.duration}} mins</label>
+            {% else %}
+            <label for="exercises_id">{{ exercise.name }}</label>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <div>
+            <input type="submit">
+        </div>
+    </form>
+</div>
+{% endblock %}

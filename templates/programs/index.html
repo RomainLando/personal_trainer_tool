@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Programs:</h3>
+
+{% for program in programs %}
+
+<div class="item">
+    <form action="/programs/{{ program.id }}">
+        <button type="submit" class="program"><h4>{{ program.title }}</h4></button>
+    </form>
+</div>
+
+{% endfor %}
+{% endblock %}
