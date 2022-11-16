@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="client">
+    <h3>{{ client.first_name }} {{ client.last_name }}</h3>
+    <p><em>Age:</em> {{ client.age }}</p>
+    <p><em>Age:</em> {{ client.height }}</p>
+    <p><em>Age:</em> {{ client.weight }}</p>
+    <div class="item">
+        <h4>Goal: {{ client.goal.title }}</h4>
+        <p><em>Rep range:</em> {{ client.goal.rep_start }} - {{ client.goal.rep_end }}</p>
+        <p><em>Sets:</em> {{ client.goal.sets }}</p>
+    </div>
+    <div class="programs">
+        {% for program in programs %}
+        <div class="item">
+            <form action="/programs/{{ program.id }}">
+                <button type="submit" class="program"><h4>{{ program.title }}</h4></button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="client-buttons">
+    <form action="/clients/{{ client.id }}/edit">
+        <button type="submit" class="workout-button"><h4>Edit Client</h4></button>
+    </form>
+    <form action="/clients/{{ client.id }}/delete" method="POST">
+        <button type="submit" class="workout-button"><h4>Delete Client</h4></button>
+    </form>
+</div>
+
+
+{% endblock %}
