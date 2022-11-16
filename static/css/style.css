@@ -97,7 +97,22 @@ label {
 }
 
 input {
+    padding-left: 2px;
     border-radius: 10px;
+    border-color: rgb(0, 208, 255);
+    background-color: rgba(106, 105, 105, 0);
+    color: white;
+    border-width: 2px;
+    border-style: solid;
+    text-indent: 2px;
+    font-family: 'Bree Serif', serif;
+    line-height: 1.5;
+}
+
+select {
+    appearance: none;
+    padding: 1px 10px;
+    border-radius: 9px;
     border-color: rgb(0, 208, 255);
     background-color: rgba(106, 105, 105, 0);
     color: white;
