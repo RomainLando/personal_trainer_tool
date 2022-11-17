@@ -10,6 +10,7 @@ This solution will be built using only:
 * Python
 * Flask
 * PostgreSQL and the psycopg
+* unit testing
 
 it is a solo project with the aim being to consolidate learning of TDD, OOP, git and full-stack development.
 
