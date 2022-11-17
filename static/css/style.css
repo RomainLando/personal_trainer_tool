@@ -192,6 +192,25 @@ a {
     justify-content: center;
 }
 
+.pages {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.programs, .big-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.client, .program {
+    min-width: 100px;
+    max-width: fit-content;
+}
+
 .submit > input {
     background-color:  rgb(0, 208, 255);
     font-size: 15px;
@@ -214,6 +233,28 @@ a {
     font-size: 20px;
 }
 
+.page > form {
+    margin: 5px 5px;
+}
+
 .buttons > form > input:hover {
+    cursor: pointer;
+}
+
+.big-buttons > form > button {
+    padding-left: 2px;
+    border-radius: 10px;
+    border-color: rgb(0, 208, 255);
+    background-color: rgba(23, 23, 23, 0.872);
+    color: white;
+    border-width: 2px;
+    border-style: solid;
+    text-indent: 2px;
+    font-family: 'Bree Serif', serif;
+    line-height: 0;
+    margin: 0 5px;
+}
+
+.big-buttons > form > button:hover {
     cursor: pointer;
 }

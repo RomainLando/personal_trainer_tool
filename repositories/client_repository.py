@@ -41,8 +41,7 @@ def select(id):
         result = results[0]
         goal_id = result['goal_id']
         goal = goal_repository.select(goal_id)
-        client = Client(result["first_name"], result["last_name"],
-        result["age"], result["height"], result["weight"], goal, result['id'])
+        client = Client(result["first_name"], result["last_name"], result["age"], result["height"], result["weight"], goal, result['id'])
     return client
 
 def delete_all():
@@ -68,7 +67,7 @@ def update(client):
     client.height, client.weight, client.goal.id, client.id]
     run_sql(sql, values)
 
-def show_programs(client):
+def show_programs(id):
     client_programs = []
     sql = """
     SELECT programs.id AS program_id
@@ -79,7 +78,7 @@ def show_programs(client):
     ON clients.id = client_programs.client_id
     WHERE clients.id = %s 
     """
-    values = [client.id]
+    values = [id]
     results = run_sql(sql, values)
     for result in results:
         client_program = program_repository.select(result["program_id"])

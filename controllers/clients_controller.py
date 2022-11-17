@@ -16,7 +16,7 @@ def clients():
 @clients_blueprint.route("/clients/<id>")
 def show_client(id):
     client = client_repository.select(id)
-    programs = client_repository.show_programs(client)
+    programs = client_repository.show_programs(client.id)
     return render_template("clients/client.html", client = client, programs = programs)
 
 @clients_blueprint.route("/clients/new")
@@ -56,7 +56,7 @@ def edit_client(id):
     client = client_repository.select(id)
     programs = program_repository.select_all()
     goals = goal_repository.select_all()
-    client_programs = client_repository.show_programs(client)
+    client_programs = client_repository.show_programs(client.id)
     client_programs_ids = [client_program.id for client_program in client_programs]
     return render_template("/clients/edit.html", client = client, programs = programs, client_programs_ids = client_programs_ids, goals = goals)
 
@@ -71,10 +71,11 @@ def update_client(id):
     goal = goal_repository.select(int(goal_id))
     new_client = Client(first_name, last_name, age, height, weight, goal, id)
     client_repository.update(new_client)
-    programs = client_repository.show_programs(new_client)
-    for program in programs:
-        client_program = client_program_repository.select_by_client_program_ids(new_client.id, program.id)
-        client_program_repository.delete(client_program.id)
+    # programs = client_repository.show_programs(new_client)
+    # for program in programs:
+    #     client_program = client_program_repository.select_by_client_program_ids(new_client.id, program.id)
+    #     client_program_repository.delete(client_program.id)
+    client_program_repository.delete_by_client_id(new_client.id)
     programs_id = request.form.getlist('programs_id')
     for program_id in programs_id:
         program = program_repository.select(int(program_id))

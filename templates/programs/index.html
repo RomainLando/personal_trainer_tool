@@ -2,14 +2,15 @@
 {% block content %}
 
 <h3>Programs:</h3>
-
+<div class="pages">
 {% for program in programs %}
 
-<div class="item">
-    <form action="/programs/{{ program.id }}">
-        <button type="submit" class="program"><h4>{{ program.title }}</h4></button>
-    </form>
-</div>
+    <div class="page">
+        <form action="/programs/{{ program.id }}">
+            <button type="submit" class="program"><h4>{{ program.title }}</h4></button>
+        </form>
+    </div>
 
 {% endfor %}
+</div>
 {% endblock %}

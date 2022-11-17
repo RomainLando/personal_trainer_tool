@@ -82,3 +82,11 @@ def select_by_client_program_ids(client_id, program_id):
         program = program_repository.select(program_id)
         client_programs = ClientProgram(client, program, result['id'])
     return client_programs
+
+def delete_by_client_id(id):
+    sql = """
+    DELETE FROM client_programs
+    WHERE client_id = %s
+    """
+    values = [id]
+    run_sql(sql, values)

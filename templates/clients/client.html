@@ -3,9 +3,11 @@
 
 <div class="client">
     <h3>{{ client.first_name }} {{ client.last_name }}</h3>
-    <p><em>Age:</em> {{ client.age }}</p>
-    <p><em>Height (cm):</em> {{ client.height }}</p>
-    <p><em>Weight (kg):</em> {{ client.weight }}</p>
+    <div class="item">
+        <p><em>Age:</em> {{ client.age }}</p>
+        <p><em>Height (cm):</em> {{ client.height }}</p>
+        <p><em>Weight (kg):</em> {{ client.weight }}</p>
+    </div>
     <div class="item">
         <h4>Goal: {{ client.goal.title }}</h4>
         <p><em>Rep range:</em> {{ client.goal.rep_start }} - {{ client.goal.rep_end }}</p>
@@ -13,7 +15,7 @@
     </div>
     <div class="programs">
         {% for program in programs %}
-        <div class="item">
+        <div>
             <form action="/programs/{{ program.id }}">
                 <button type="submit" class="program"><h4>{{ program.title }}</h4></button>
             </form>
@@ -22,7 +24,7 @@
     </div>
 </div>
 
-<div class="client-buttons">
+<div class="big-buttons">
     <form action="/clients/{{ client.id }}/edit">
         <button type="submit" class="workout-button"><h4>Edit Client</h4></button>
     </form>
