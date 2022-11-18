@@ -39,12 +39,6 @@ def delete_all():
     run_sql(sql)
 
 
-def delete(id):
-    sql = "DELETE FROM goals WHERE id = %s"
-    values = [id]
-    run_sql(sql, values)
-
-
 def update(goal):
     sql = """
     UPDATE goals SET 
