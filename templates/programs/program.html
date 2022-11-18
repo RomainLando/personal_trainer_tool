@@ -3,20 +3,22 @@
 
 <h3>Program: {{ program.title }}</h3>
 <div class="exercises">
-    {% for exercise in exercises %}
-    <div class="item">
-        <h4>{{exercise.name}}</h4>
-        <p><em>Category:</em> {{exercise.muscle_group}}</p>
-        {% if exercise.duration %}
-        <p><em>Duration: </em> {{exercise.duration}} mins</p>
-        {% endif %}
-        <section class="buttons">
-            <form action="{{ url_for('.remove_exercise', program_id=program.id, exercise_id = exercise.id) }}" method="POST">
-                <input type="submit" value="Remove">
-            </form>
-        </section>
+    <div class="items">
+        {% for exercise in exercises %}
+        <div class="item">
+            <h4>{{exercise.name}}</h4>
+            <p><em>Category:</em> {{exercise.muscle_group}}</p>
+            {% if exercise.duration %}
+            <p><em>Duration: </em> {{exercise.duration}} mins</p>
+            {% endif %}
+            <section class="buttons">
+                <form action="{{ url_for('.remove_exercise', program_id=program.id, exercise_id = exercise.id) }}" method="POST">
+                    <input type="submit" value="Remove">
+                </form>
+            </section>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 
 <div class="big-buttons">
