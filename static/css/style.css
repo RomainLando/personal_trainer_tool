@@ -134,7 +134,7 @@ a {
 }
 
 .container {
-    margin: 10% 1rem;
+    margin: 1rem 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -179,6 +179,7 @@ a {
     display: flex;
     justify-content: space-around;
     gap: 2rem;
+    padding-left: 0%;
 
 }
 
