@@ -71,10 +71,6 @@ def update_client(id):
     goal = goal_repository.select(int(goal_id))
     new_client = Client(first_name, last_name, age, height, weight, goal, id)
     client_repository.update(new_client)
-    # programs = client_repository.show_programs(new_client)
-    # for program in programs:
-    #     client_program = client_program_repository.select_by_client_program_ids(new_client.id, program.id)
-    #     client_program_repository.delete(client_program.id)
     client_program_repository.delete_by_client_id(new_client.id)
     programs_id = request.form.getlist('programs_id')
     for program_id in programs_id:

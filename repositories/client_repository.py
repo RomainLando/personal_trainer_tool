@@ -43,10 +43,7 @@ def select(id):
         goal = goal_repository.select(goal_id)
         client = Client(result["first_name"], result["last_name"], result["age"], result["height"], result["weight"], goal, result['id'])
     return client
-
-def delete_all():
-    sql= "DELETE FROM clients"
-    run_sql(sql)
+    
 
 def delete(id):
     sql = """
