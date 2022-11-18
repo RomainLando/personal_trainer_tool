@@ -33,11 +33,6 @@ def select(id):
     return program
 
 
-def delete_all():
-    sql = "DELETE FROM programs"
-    run_sql(sql)
-
-
 def delete(id):
     sql = "DELETE FROM programs WHERE id = %s"
     values = [id]
