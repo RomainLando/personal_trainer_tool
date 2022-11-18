@@ -199,6 +199,12 @@ a {
     justify-content: center;
 }
 
+.client {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .programs, .big-buttons {
     display: flex;
     flex-direction: row;
