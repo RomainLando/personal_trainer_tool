@@ -1,6 +1,28 @@
 # personal_trainer_tool
 
-:star: This is a management tool for personal trainers to help them build, edit and allocate training plans to their clients :star:
+:star: This is a management tool for personal trainers to help them build, edit and allocate training plans and exercises to their clients :star:
+
+![Home page image](/static/images/home_page.png)
+
+Create a database of exercises you feel comfortable teaching to your clients:
+
+![Exercises page](/static/images/exercises.png)
+
+Add new clients as your client-base grows
+
+![New client page](/static//images/new_client.png)
+
+# How to run
+First you'll need to create a database called "personal_trainer" using the code `createdb personal_trainer`
+This requires posgres to be installed on your machine.
+
+you can then navigate to the repository and run `python3 db/personal_trainer.sql` to create the neccesary tables in the database.
+
+To populate the you will need to install psycopg2 on your device and run the code `python3 console.py`.
+
+once this is done, make sure Flask is installed and run the code `flask --app app.py --debug run` and oppen the IP address on your browser to view the website. Remember to terminate flask once you're done using cmd+c.
+
+
 
 ## Specifications 
 
